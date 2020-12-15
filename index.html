@@ -25,10 +25,9 @@
   <p id="friendship"><b>isFriendship:</b> </p>
   <p id="scanCode"><b>Code:</b> </p>
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
-
   <p id="universalLink1"><b>Universal Link:</b> </p>
   <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
-  <p><a href="path/?param=9">Link to Path</a></p>
+  <p><a href="liff/path/?param=9">Link to Path</a></p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
@@ -43,77 +42,33 @@
     console.log("Hello World!")
   </script> -->
 
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script> <!-- sdk liff -->
+  <!-- <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script> -->
   <script>
     function createUniversalLink() {
-      const link1 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink1").append(link1)
-
-      liff.peramanentLink.setExtraQueryParam('param=9')
-      const link1 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink2").append(link2)
     }
 
     async function shareMsg() {
-      liff.shareTargetPicker([
-        {
-          "type": "text",
-          "text": "This message was sent by ShareTargetPicker"
-        }
-
-      ])
     }
 
     function logOut() {
-      liff.logout()
-      window.location.reload()
     }
 
     function closed() {
-      liff.closeWindow()
     }
 
     async function scanCode() {
-      const result = await liff.scanCode()
-      document.getElementById("scanCode").append(result.value)
     }
 
     function openWindow() {
-      liff.openWindow({
-        url: "https://line.me",
-        external: true
-      })
     }
 
     async function getFriendship() {
-      const friend = await liff.getFriendship()
-      document.getElementById("friendship").append(friend.friendFlag)
-      if (!friend.friendFlag) {
-        if (confirm("คุณยังไม้ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          window.location = "https://line.me/R/ti/p/@855ykblx"
-        }
-      }
     }
 
     async function sendMsg() {
-      if (liff.getContext().type !== "none" && liff.getContext().type !== "external") {
-        await liff.sendMessages([
-          {
-            "type": "sticker",
-            "stickerId": 52002741,
-            "packageId": 11537
-          }
-        ])
-        alert("Message sent")
-      }
     }
 
     function getContext() {
-      document.getElementById("type").append(liff.getContext().type)
-      document.getElementById("viewType").append(liff.getContext().viewType)
-      document.getElementById("utouId").append(liff.getContext().utouId)
-      document.getElementById("roomId").append(liff.getContext().roomId)
-      document.getElementById("groupId").append(liff.getContext().groupId)
     }
 
     async function getUserProfile() {
