@@ -48,6 +48,12 @@
     }
 
     async function shareMsg() {
+      liff.shareTargetPicker([
+        {
+          "type": "text",
+          "text": "This message was sent by ShareTargetPicker"
+        }
+      ])
     }
 
     function logOut() {
@@ -60,8 +66,10 @@
     }
 
     async function scanCode() {
+      /*
       const result = await liff.scanCode()
       document.getElementById("scanCode").append(result.value)
+      */
     }
 
     function openWindow() {
