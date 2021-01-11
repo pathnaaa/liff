@@ -25,6 +25,7 @@
   <p id="friendship"><b>isFriendship:</b> </p>
   <p id="scanCode"><b>Code:</b> </p>
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
+
   <p id="universalLink1"><b>Universal Link:</b> </p>
   <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
   <p><a href="path/?param=9">Link to Path</a></p>
@@ -41,15 +42,15 @@
     var vConsole = new VConsole()
     console.log("Hello World!")
   </script> -->
-
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+  
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script> <!-- sdk liff -->
   <script>
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
       document.getElementById("universalLink1").append(link1)
 
-      liff.permanentLink.setExtraQueryPeram('param=9')
-      const link2 = liff.permanentLink.createUrl()
+      liff.peramanentLink.setExtraQueryParam('param=9')
+      const link1 = liff.permanentLink.createUrl()
       document.getElementById("universalLink2").append(link2)
     }
 
@@ -59,6 +60,7 @@
           "type": "text",
           "text": "This message was sent by ShareTargetPicker"
         }
+
       ])
     }
 
@@ -72,10 +74,8 @@
     }
 
     async function scanCode() {
-      /*
       const result = await liff.scanCode()
       document.getElementById("scanCode").append(result.value)
-      */
     }
 
     function openWindow() {
@@ -90,7 +90,7 @@
       document.getElementById("friendship").append(friend.friendFlag)
       if (!friend.friendFlag) {
         if (confirm("คุณยังไม้ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          window.location = "https://line.me/R/ti/p/@855ykblx"
+          window.location = "https://line.me/R/ti/p/@301irgxz"
         }
       }
     }
