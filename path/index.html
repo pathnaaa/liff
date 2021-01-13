@@ -33,7 +33,7 @@
   }
   async function main() {
     await liff.init({ liffId: "1655379271-1wWVZrqn"})
-    if (liff.isLoggetIn()){
+    if (liff.isLoggedIn()){
       getUserProfile()
     } else {
       //liff.login() //old
